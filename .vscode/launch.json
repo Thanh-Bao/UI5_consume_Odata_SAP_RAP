@@ -1,16 +1,16 @@
 {
   "configurations": [
     {
-      "name": "Start project1",
+      "name": "Start baobaostore.com",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npx",
-      "cwd": "${workspaceFolder}/project1",
+      "cwd": "${workspaceFolder}/baobaostore.com",
       "windows": {
         "runtimeExecutable": "npx.cmd"
       },
       "runtimeArgs": ["fiori", "run"],
-      "args": ["--open", "test/flpSandbox.html#ZABCDEMO1project1-display"],
+      "args": ["--open", "test/flpSandbox.html#baobaostorecom-display"],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
       "outputCapture": "std",
@@ -21,10 +21,10 @@
       }
     },
     {
-      "name": "Start project1 Mock",
+      "name": "Start baobaostore.com Mock",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/project1",
+      "cwd": "${workspaceFolder}/baobaostore.com",
       "runtimeExecutable": "npx",
       "windows": {
         "runtimeExecutable": "npx.cmd"
@@ -34,7 +34,7 @@
         "--config",
         "./ui5-mock.yaml",
         "--open",
-        "test/flpSandbox.html#ZABCDEMO1project1-display"
+        "test/flpSandbox.html#baobaostorecom-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
@@ -45,10 +45,10 @@
       }
     },
     {
-      "name": "Start project1 Local",
+      "name": "Start baobaostore.com Local",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/project1",
+      "cwd": "${workspaceFolder}/baobaostore.com",
       "runtimeExecutable": "npx",
       "windows": {
         "runtimeExecutable": "npx.cmd"
@@ -58,7 +58,7 @@
         "--config",
         "./ui5-local.yaml",
         "--open",
-        "test/flpSandbox.html#ZABCDEMO1project1-display"
+        "test/flpSandbox.html#baobaostorecom-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",

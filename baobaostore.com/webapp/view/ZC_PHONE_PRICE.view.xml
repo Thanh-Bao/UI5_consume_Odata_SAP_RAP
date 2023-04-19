@@ -1,0 +1,19 @@
+<mvc:View controllerName="baobaostore.com.controller.ZC_PHONE_PRICE"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+        <Table items="{/ZC_PHONE_PRICE}">
+            <columns>
+                <Column>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <Text text="{id}" />
+                </ColumnListItem>
+            </items>
+        </Table>
+
+    </Page>
+</mvc:View>
