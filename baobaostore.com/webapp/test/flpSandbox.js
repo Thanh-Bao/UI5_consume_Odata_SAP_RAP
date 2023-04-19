@@ -54,7 +54,7 @@ sap.ui.define([
 							"baobaostorecom-display": {
 								"semanticObject": "baobaostorecom",
 								"action": "display",
-								"description": "A Fiori application.",
+								"description": "Bảo Bảo Store",
 								"title": "baobaostore.com",
 								"signature": {
 									"parameters": {}

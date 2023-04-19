@@ -1,19 +1,99 @@
 <mvc:View controllerName="baobaostore.com.controller.ZC_PHONE_PRICE"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
 
-        <Table items="{/ZC_PHONE_PRICE}">
-            <columns>
-                <Column>
-                </Column>
-            </columns>
-            <items>
-                <ColumnListItem>
-                    <Text text="{id}" />
-                </ColumnListItem>
-            </items>
-        </Table>
+    <Table
+        inset="false"
+        items="{/ZC_PHONE_PRICE}">
+        <columns>
+            <Column>
+                <Text text="ID" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                width="10em"
+                demandPopin="true">
+                <Text text="Specification ID" />
+            </Column>
+            <Column
+                minScreenWidth="Desktop"
+                demandPopin="true"
+                width="5em"
+                hAlign="Center">
+                <Text text="Color" />
+            </Column>
+            <Column
+                minScreenWidth="Desktop"
+                demandPopin="true"
+                width="8em"
+                hAlign="Center">
+                <Text text="Storage (GB)" />
+            </Column>
+            <Column
+                hAlign="Center">
+                <Text text="Guarantee (month)" />
+            </Column>
+            <Column
+                hAlign="Center">
+                <Text text="Depreciation (%)" />
+            </Column>
+            <Column
+                hAlign="End">
+                <Text text="Fake price (VND)" />
+            </Column>
+            <Column
+                hAlign="End">
+                <Text text="Real price (VND)" />
+            </Column>
+            <Column
+                width="8em"
+                hAlign="End">
+                <Text text="Status" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                    <ObjectIdentifier
+                        text="{id}" />
+                    <Text
+                        text="{specification_id}" />
+                    <Text
+                        text="{color}" />
+                    <Text
+                        text="{storage}" />
+                    <Text
+                        text="{guarantee}" />
+                    <Text
+                        text="{depreciation}" />
+                    <Text
+                        text="{fake_price}" />
+                    <Text
+                        text="{real_price}" />
+                    <Text
+                        text="{status}" />
+                    <!-- <Text
+                        text="{Width} x {Depth} x {Height} {DimUnit}" />
+                    <ObjectNumber
+                        number="{WeightMeasure}"
+                        unit="{WeightUnit}"
+                        state="{
+							parts: [
+								{path: 'WeightMeasure'},
+								{path: 'WeightUnit'}
+							],
+							formatter: 'sap.m.sample.Table.Formatter.weightState'
+						}" />
+                    <ObjectNumber
+                        number="{
+								parts:[{path:'Price'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+                        unit="{CurrencyCode}" /> -->
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
 
-    </Page>
 </mvc:View>
