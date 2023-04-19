@@ -3,5 +3,16 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content />
+        <Table items="{/ZC_PHONE_PRICE}">
+            <columns>
+                <Column>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <Text text="{id}" />
+                </ColumnListItem>
+            </items>
+        </Table>
     </Page>
 </mvc:View>
