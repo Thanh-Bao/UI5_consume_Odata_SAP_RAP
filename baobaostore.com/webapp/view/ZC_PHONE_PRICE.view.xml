@@ -65,32 +65,22 @@
                     <Text
                         text="{guarantee}" />
                     <Text
-                        text="{depreciation}" />
+                        text="{= ${depreciation} > 0 ? ${depreciation}  : 'New' }" />
                     <Text
-                        text="{fake_price}" />
+                        text="{
+								path: 'fake_price',
+								formatter : '.formatter.price'
+							}" />
                     <Text
-                        text="{real_price}" />
+                        text="{
+								path: 'real_price',
+								formatter : '.formatter.price'
+							}" />
                     <Text
-                        text="{status}" />
-                    <!-- <Text
-                        text="{Width} x {Depth} x {Height} {DimUnit}" />
-                    <ObjectNumber
-                        number="{WeightMeasure}"
-                        unit="{WeightUnit}"
-                        state="{
-							parts: [
-								{path: 'WeightMeasure'},
-								{path: 'WeightUnit'}
-							],
-							formatter: 'sap.m.sample.Table.Formatter.weightState'
-						}" />
-                    <ObjectNumber
-                        number="{
-								parts:[{path:'Price'},{path:'CurrencyCode'}],
-								type: 'sap.ui.model.type.Currency',
-								formatOptions: {showMeasure: false}
-							}"
-                        unit="{CurrencyCode}" /> -->
+                        text="{
+								path: 'status',
+								formatter : '.formatter.product_status'
+							}" />
                 </cells>
             </ColumnListItem>
         </items>
