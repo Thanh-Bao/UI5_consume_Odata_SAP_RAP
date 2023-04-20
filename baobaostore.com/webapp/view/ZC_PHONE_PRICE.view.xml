@@ -15,13 +15,13 @@
                 count="Total ({list_IPhone_model_key_name>/all_product})"
                 text="Phone" />
             <IconTabFilter
-                icon="sap-icon://add-equipment"
+                icon="sap-icon://activate"
                 iconColor="Positive"
                 key="new_product"
                 count="{list_IPhone_model_key_name>/new_product}"
                 text="new product" />
             <IconTabFilter
-                icon="sap-icon://activate"
+                icon="sap-icon://add-equipment"
                 iconColor="Critical"
                 key="used_product"
                 count="{list_IPhone_model_key_name>/used_product}"
