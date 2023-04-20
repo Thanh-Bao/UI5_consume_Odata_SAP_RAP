@@ -2,88 +2,124 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
 
-    <Table
-        inset="false"
-        items="{/ZC_PHONE_PRICE}">
-        <columns>
-            <Column>
-                <Text text="ID" />
-            </Column>
-            <Column
-                minScreenWidth="Tablet"
-                width="10em"
-                demandPopin="true">
-                <Text text="Specification ID" />
-            </Column>
-            <Column
-                minScreenWidth="Desktop"
-                demandPopin="true"
-                width="5em"
-                hAlign="Center">
-                <Text text="Color" />
-            </Column>
-            <Column
-                minScreenWidth="Desktop"
-                demandPopin="true"
-                width="8em"
-                hAlign="Center">
-                <Text text="Storage (GB)" />
-            </Column>
-            <Column
-                hAlign="Center">
-                <Text text="Guarantee (month)" />
-            </Column>
-            <Column
-                hAlign="Center">
-                <Text text="Depreciation (%)" />
-            </Column>
-            <Column
-                hAlign="End">
-                <Text text="Fake price (VND)" />
-            </Column>
-            <Column
-                hAlign="End">
-                <Text text="Real price (VND)" />
-            </Column>
-            <Column
-                width="8em"
-                hAlign="End">
-                <Text text="Status" />
-            </Column>
-        </columns>
+
+    <IconTabBar
+        id="iconTabBar"
+        select="onQuickFilter"
+        expandable="false"
+        applyContentPadding="false">
         <items>
-            <ColumnListItem vAlign="Middle">
-                <cells>
-                    <ObjectIdentifier
-                        text="{id}" />
-                    <Text
-                        text="{specification_id}" />
-                    <Text
-                        text="{color}" />
-                    <Text
-                        text="{storage}" />
-                    <Text
-                        text="{guarantee}" />
-                    <Text
-                        text="{= ${depreciation} > 0 ? ${depreciation}  : 'New' }" />
-                    <Text
-                        text="{
+            <IconTabFilter
+                key="all_product"
+                showAll="true"
+                count="Total ({list_IPhone_model_key_name>/all_product})"
+                text="Phone" />
+            <IconTabFilter
+                icon="sap-icon://add-equipment"
+                iconColor="Positive"
+                key="new_product"
+                count="{list_IPhone_model_key_name>/new_product}"
+                text="new product" />
+            <IconTabFilter
+                icon="sap-icon://activate"
+                iconColor="Critical"
+                key="used_product"
+                count="{list_IPhone_model_key_name>/used_product}"
+                text="used product" />
+            <IconTabFilter
+                icon="sap-icon://product"
+                key="in_stock"
+                count="{list_IPhone_model_key_name>/in_stock}"
+                text="In stock" />
+        </items>
+        <content>
+            <Table
+                id="Iphone_table"
+                updateFinished=".onUpdateFinished"
+                inset="false"
+                items="{/ZC_PHONE_PRICE}">
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        width="10em"
+                        demandPopin="true">
+                        <Text text="Specification ID" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        width="5em"
+                        hAlign="Center">
+                        <Text text="Color" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        width="8em"
+                        hAlign="Center">
+                        <Text text="Storage (GB)" />
+                    </Column>
+                    <Column
+                        hAlign="Center">
+                        <Text text="Guarantee (month)" />
+                    </Column>
+                    <Column
+                        hAlign="Center">
+                        <Text text="Depreciation (%)" />
+                    </Column>
+                    <Column
+                        hAlign="End">
+                        <Text text="Fake price (VND)" />
+                    </Column>
+                    <Column
+                        hAlign="End">
+                        <Text text="Real price (VND)" />
+                    </Column>
+                    <Column
+                        width="8em"
+                        hAlign="End">
+                        <Text text="Status" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier
+                                text="{id}" />
+                            <Text
+                                text="{specification_id}" />
+                            <Text
+                                text="{color}" />
+                            <Text
+                                text="{storage}" />
+                            <Text
+                                text="{guarantee}" />
+                            <Text
+                                text="{= ${depreciation} > 0 ? ${depreciation}  : 'New' }" />
+                            <Text
+                                text="{
 								path: 'fake_price',
 								formatter : '.formatter.price'
 							}" />
-                    <Text
-                        text="{
+                            <Text
+                                text="{
 								path: 'real_price',
 								formatter : '.formatter.price'
 							}" />
-                    <Text
-                        text="{
+                            <Text
+                                text="{
 								path: 'status',
 								formatter : '.formatter.product_status'
 							}" />
-                </cells>
-            </ColumnListItem>
-        </items>
-    </Table>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </IconTabBar>
+
 
 </mvc:View>
