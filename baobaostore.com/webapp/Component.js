@@ -3,10 +3,10 @@
  */
 
 sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/Device",
-        "baobaostore/com/model/models"
-    ],
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "baobaostore/com/model/models"
+],
     function (UIComponent, Device, models) {
         "use strict";
 
@@ -29,6 +29,9 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+
+                // create the views based on the url/hash
+                this.getRouter().initialize();
             }
         });
     }

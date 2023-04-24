@@ -3,7 +3,7 @@ sap.ui.define([
     "../model/formatter",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
-    "sap/ui/model/odata/ODataModel"
+    "sap/ui/model/odata/ODataModel",
 ],
 
     function (Controller, formatter, JSONModel, Filter, ODataModel) {
@@ -27,6 +27,22 @@ sap.ui.define([
                     in_stock: 0
                 });
                 this.getView().setModel(oViewModel, "list_IPhone_model_key_name");
+
+                ///////////////////////////////////////////////////
+
+                let oNewPhone = new JSONModel({
+                    id: "fdf",
+                    specification_id: 2323,
+                    color: "fddfd",
+                    storage: 432,
+                    guarantee: 323,
+                    depreciation: 3232,
+                    fake_price: 3232323,
+                    real_price: 32323232332,
+                    status: "dffdf"
+                });
+                this.getView().setModel(oNewPhone, "new_phone");
+
             },
             onUpdateFinished: function () {
                 let oModel = this.getView().getModel('list_IPhone_model_key_name');
@@ -49,6 +65,28 @@ sap.ui.define([
                 } else {
                     oBinding.filter([]);
                 }
+            },
+
+            onAddNewPhonePressBtn: function (oEvent) {
+                // this.getOwnerComponent().getRouter().navTo("add_phone_page");
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("ZC_PHONE_PRICE_Create");
+            },
+            submit: function () {
+                console.log(this.getView().getModel("new_phone"))
+                this.getView().getModel().create("/ZC_PHONE_PRICE", {
+
+                    id: "fdf",
+                    specification_id: 2323,
+                    color: "fddfd",
+                    storage: 432,
+                    guarantee: 2,
+                    depreciation: 2,
+                    fake_price: 3232323,
+                    real_price: 53434,
+                    status: "dffdf"
+
+                })
             }
         });
     });

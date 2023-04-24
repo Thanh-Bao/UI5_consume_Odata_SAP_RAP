@@ -1,0 +1,78 @@
+<mvc:View
+    controllerName=""
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <Page>
+        <l:VerticalLayout class="sapUiContentPadding" width="100%">
+            <Label text="ID" labelFor="id" />
+            <Input
+                id="id"
+                placeholder="Ex: Iphone-11-Pro-blue-128GB"
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Specification ID" labelFor="specification_id" />
+            <Input
+                id="specification_id"
+                type="Number"
+                placeholder="Ex: 545"
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Color" labelFor="color" />
+            <Input
+                id="color"
+                type="Text"
+                placeholder="Ex: BLACK, YELOW, BLUE, ..."
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Storage (GB)" labelFor="storage" />
+            <Input
+                id="storage"
+                type="Number"
+                placeholder="Ex: 128, 256, 512, ..."
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Guarantee (month)" labelFor="guarantee" />
+            <Input
+                id="guarantee"
+                type="Number"
+                placeholder="Ex: 6, 12, 24, 36, ..."
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Depreciation (%)" labelFor="depreciation" />
+            <Input
+                id="depreciation"
+                type="Number"
+                placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Fake price (VND)" labelFor="fake_price" />
+            <Input
+                id="fake_price"
+                type="Number"
+                placeholder="Ex: 19000000"
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Real price (VND)" labelFor="real_price" />
+            <Input
+                id="real_price"
+                type="Number"
+                placeholder="Ex: 23000000"
+                class="sapUiSmallMarginBottom" />
+
+            <Label text="Status" labelFor="status" />
+            <Input
+                id="status"
+                type="Number"
+                placeholder="Ex: IN_STOCK, STOCK_OUT"
+                class="sapUiSmallMarginBottom" />
+        </l:VerticalLayout>
+    </Page>
+
+
+</mvc:View>

@@ -93,7 +93,8 @@
         "viewPath": "baobaostore.com.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "transition": "flip"
       },
       "routes": [
         {
@@ -102,6 +103,11 @@
           "target": [
             "TargetZC_PHONE_PRICE"
           ]
+        },
+        {
+          "pattern": "ZC_PHONE_PRICE_Create",
+          "name": "ZC_PHONE_PRICE_Create",
+          "target": "ZC_PHONE_PRICE_Create"
         }
       ],
       "targets": {
@@ -111,6 +117,10 @@
           "clearControlAggregation": false,
           "viewId": "ZC_PHONE_PRICE",
           "viewName": "ZC_PHONE_PRICE"
+        },
+        "ZC_PHONE_PRICE_Create": {
+          "id": "ZC_PHONE_PRICE_Create",
+          "name": "ZC_PHONE_PRICE_Create"
         }
       }
     },
