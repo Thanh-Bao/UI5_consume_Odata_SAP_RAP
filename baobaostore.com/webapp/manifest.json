@@ -119,8 +119,8 @@
           "viewName": "ZC_PHONE_PRICE"
         },
         "ZC_PHONE_PRICE_Create": {
-          "id": "ZC_PHONE_PRICE_Create",
-          "name": "ZC_PHONE_PRICE_Create"
+          "viewId": "ZC_PHONE_PRICE_Create",
+          "viewName": "ZC_PHONE_PRICE_Create"
         }
       }
     },

@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName=""
+    controllerName="baobaostore.com.controller.ZC_PHONE_PRICE_Create"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
@@ -7,13 +7,18 @@
     displayBlock="true"
     height="100%"
     busyIndicatorDelay="0"
+    xmlns:course="baobaostore.com.control"
 >
     <Page>
+
+        <!-- Start FORM SUBMIT -->
+
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <Label text="ID" labelFor="id" />
             <Input
                 id="id"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
+                value="{new_phone>/id}"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Specification ID" labelFor="specification_id" />
@@ -21,18 +26,20 @@
                 id="specification_id"
                 type="Number"
                 placeholder="Ex: 545"
+                value="{new_phone>/specification_id}"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Color" labelFor="color" />
             <Input
                 id="color"
-                type="Text"
+                value="{new_phone>/color}"
                 placeholder="Ex: BLACK, YELOW, BLUE, ..."
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Storage (GB)" labelFor="storage" />
             <Input
                 id="storage"
+                value="{new_phone>/storage}"
                 type="Number"
                 placeholder="Ex: 128, 256, 512, ..."
                 class="sapUiSmallMarginBottom" />
@@ -40,6 +47,7 @@
             <Label text="Guarantee (month)" labelFor="guarantee" />
             <Input
                 id="guarantee"
+                value="{new_phone>/guarantee}"
                 type="Number"
                 placeholder="Ex: 6, 12, 24, 36, ..."
                 class="sapUiSmallMarginBottom" />
@@ -47,6 +55,7 @@
             <Label text="Depreciation (%)" labelFor="depreciation" />
             <Input
                 id="depreciation"
+                value="{new_phone>/depreciation}"
                 type="Number"
                 placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
                 class="sapUiSmallMarginBottom" />
@@ -54,6 +63,7 @@
             <Label text="Fake price (VND)" labelFor="fake_price" />
             <Input
                 id="fake_price"
+                value="{new_phone>/fake_price}"
                 type="Number"
                 placeholder="Ex: 19000000"
                 class="sapUiSmallMarginBottom" />
@@ -61,6 +71,7 @@
             <Label text="Real price (VND)" labelFor="real_price" />
             <Input
                 id="real_price"
+                value="{new_phone>/real_price}"
                 type="Number"
                 placeholder="Ex: 23000000"
                 class="sapUiSmallMarginBottom" />
@@ -68,10 +79,24 @@
             <Label text="Status" labelFor="status" />
             <Input
                 id="status"
-                type="Number"
+                value="{new_phone>/status}"
                 placeholder="Ex: IN_STOCK, STOCK_OUT"
                 class="sapUiSmallMarginBottom" />
         </l:VerticalLayout>
+
+
+        <Button text="Submit"
+            press=".submitNewPhone">
+        </Button>
+
+        <!-- End FORM SUBMIT -->
+
+        <!-- START CUSTOM CONTROL -->
+
+        <course:ProductRate />
+
+        <!-- END CUSTOM CONTROL -->
+
     </Page>
 
 
