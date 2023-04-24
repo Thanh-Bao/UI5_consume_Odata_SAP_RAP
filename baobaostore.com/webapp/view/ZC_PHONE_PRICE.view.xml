@@ -43,6 +43,7 @@
                     text="In stock" />
             </items>
             <content>
+
                 <Table
                     id="Iphone_table"
                     updateFinished=".onUpdateFinished"
@@ -128,6 +129,7 @@
                         </ColumnListItem>
                     </items>
                 </Table>
+
             </content>
         </IconTabBar>
 

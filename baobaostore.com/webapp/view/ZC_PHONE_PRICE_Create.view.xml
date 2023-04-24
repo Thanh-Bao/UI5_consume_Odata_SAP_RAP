@@ -15,7 +15,7 @@
             <Input
                 id="id"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
-                value="{new_phone>/id}"
+                value="{new_phone>/hello/id}"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Specification ID" labelFor="specification_id" />
@@ -23,20 +23,20 @@
                 id="specification_id"
                 type="Number"
                 placeholder="Ex: 545"
-                value="{new_phone>/specification_id}"
+                value="{new_phone>/hello/key/specification_id}"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Color" labelFor="color" />
             <Input
                 id="color"
-                value="{new_phone>/color}"
+                value="{new_phone>/hello/color}"
                 placeholder="Ex: BLACK, YELOW, BLUE, ..."
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Storage (GB)" labelFor="storage" />
             <Input
                 id="storage"
-                value="{new_phone>/storage}"
+                value="{new_phone>/hello/storage}"
                 type="Number"
                 placeholder="Ex: 128, 256, 512, ..."
                 class="sapUiSmallMarginBottom" />
@@ -44,7 +44,7 @@
             <Label text="Guarantee (month)" labelFor="guarantee" />
             <Input
                 id="guarantee"
-                value="{new_phone>/guarantee}"
+                value="{new_phone>/hello/guarantee}"
                 type="Number"
                 placeholder="Ex: 6, 12, 24, 36, ..."
                 class="sapUiSmallMarginBottom" />
@@ -52,7 +52,7 @@
             <Label text="Depreciation (%)" labelFor="depreciation" />
             <Input
                 id="depreciation"
-                value="{new_phone>/depreciation}"
+                value="{new_phone>/hello/depreciation}"
                 type="Number"
                 placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
                 class="sapUiSmallMarginBottom" />
@@ -60,7 +60,7 @@
             <Label text="Fake price (VND)" labelFor="fake_price" />
             <Input
                 id="fake_price"
-                value="{new_phone>/fake_price}"
+                value="{new_phone>/hello/fake_price}"
                 type="Number"
                 placeholder="Ex: 19000000"
                 class="sapUiSmallMarginBottom" />
@@ -68,7 +68,7 @@
             <Label text="Real price (VND)" labelFor="real_price" />
             <Input
                 id="real_price"
-                value="{new_phone>/real_price}"
+                value="{new_phone>/hello/real_price}"
                 type="Number"
                 placeholder="Ex: 23000000"
                 class="sapUiSmallMarginBottom" />
@@ -76,7 +76,7 @@
             <Label text="Status" labelFor="status" />
             <Input
                 id="status"
-                value="{new_phone>/status}"
+                value="{new_phone>/hello/status}"
                 placeholder="Ex: IN_STOCK, STOCK_OUT"
                 class="sapUiSmallMarginBottom" />
         </l:VerticalLayout>
