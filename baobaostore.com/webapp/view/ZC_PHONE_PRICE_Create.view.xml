@@ -10,9 +10,6 @@
     xmlns:course="baobaostore.com.control"
 >
     <Page>
-
-        <!-- Start FORM SUBMIT -->
-
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <Label text="ID" labelFor="id" />
             <Input
@@ -89,12 +86,8 @@
             press=".submitNewPhone">
         </Button>
 
-        <!-- End FORM SUBMIT -->
-
         <!-- START CUSTOM CONTROL -->
-
         <course:ProductRate />
-
         <!-- END CUSTOM CONTROL -->
 
     </Page>

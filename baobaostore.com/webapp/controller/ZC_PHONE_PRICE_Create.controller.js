@@ -1,17 +1,19 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
+    'sap/m/MessageToast',
+    "sap/m/MessageBox",
 ],
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, MessageToast, MessageBox) {
         "use strict";
 
         return Controller.extend("baobaostore.com.controller.ZC_PHONE_PRICE_Create", {
 
             onInit: function () {
                 let oNewPhone = new JSONModel({
-                    id: "fdf",
+                    id: "fdf4534",
                     specification_id: 2323,
-                    color: "fddfd",
+                    color: "fddfd543534",
                     storage: 432,
                     guarantee: 323,
                     depreciation: 3232,
@@ -23,8 +25,8 @@ sap.ui.define([
             },
 
             submitNewPhone: function () {
-                console.log(this.getView().getModel("new_phone"))
-                this.getView().getModel().create("/ZC_PHONE_PRICE", {
+
+                const _newPhone = {
 
                     id: "fdf",
                     specification_id: 2323,
@@ -36,7 +38,17 @@ sap.ui.define([
                     real_price: 53434,
                     status: "dffdf"
 
-                })
+                };
+
+                this.getView().getModel().create("/ZC_PHONE_PRICE", _newPhone, {
+                    success: function () {
+                        MessageToast.show("Create successful");
+                    },
+                    error: function (err) {
+                        MessageBox.error(JSON.parse(err.responseText).error.message.value)
+                    }
+                });
+
             }
         });
     });
