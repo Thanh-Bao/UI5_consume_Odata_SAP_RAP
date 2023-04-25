@@ -70,20 +70,28 @@ sap.ui.define([
             checkPhoneId: function (e) {
                 const _phoneId = e.getParameters().value;
                 let _oModel = this.getView().getModel('new_phone');
-                this.getView().getModel().read('/ZC_PHONE_PRICE/$count', {
-                    filters: [new Filter("id", "EQ", _phoneId)],
-                    success: function (count) {
-                        console.log("Odata", count)
-                        if (count > 0) {
-                            _oModel.setProperty("/value/id/valueStateText", "phone ID already exists!")
-                        } else {
+                _oModel.setProperty("/value/id/valueState", null);
 
+                if (_phoneId) {
+                    this.getView().getModel().read('/ZC_PHONE_PRICE/$count', {
+                        filters: [new Filter("id", "EQ", _phoneId)],
+                        success: function (count) {
+                            if (count > 0) {
+                                _oModel.setProperty("/value/id/valueState", "Error");
+                                _oModel.setProperty("/value/id/valueStateText", "phone ID already exists!");
+                            } else {
+                                _oModel.setProperty("/value/id/valueState", "Success");
+                            }
+                        },
+                        error: function (err) {
+                            console.log("/ZC_PHONE_PRICE/$count=>", err)
+                            alert("/ZC_PHONE_PRICE/$count ERROR!!!")
                         }
-                    },
-                    error: function (err) {
-                        console.log("ERR", err)
-                    }
-                })
+                    })
+                } else {
+                    _oModel.setProperty("/value/id/valueState", null);
+                    _oModel.setProperty("/value/id/valueStateText", null);
+                }
 
             },
 

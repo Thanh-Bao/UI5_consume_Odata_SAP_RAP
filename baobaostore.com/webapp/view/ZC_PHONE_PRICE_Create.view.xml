@@ -9,6 +9,7 @@
     busyIndicatorDelay="0"
     xmlns:course="baobaostore.com.control"
 >
+
     <Page>
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <Label text="ID" labelFor="id" />
@@ -17,7 +18,10 @@
                 value="{new_phone>/value/id/value}"
                 valueState="{new_phone>/value/id/valueState}"
                 valueStateText="{new_phone>/value/id/valueStateText}"
-                liveChange=".checkPhoneId"
+                description="sap-icon://accept"
+                showValueHelp="true"
+                valueHelpIconSrc="sap-icon://accept"
+                change=".checkPhoneId"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
                 class="sapUiSmallMarginBottom" />
 
