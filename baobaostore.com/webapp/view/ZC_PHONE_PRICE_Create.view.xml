@@ -14,29 +14,38 @@
             <Label text="ID" labelFor="id" />
             <Input
                 id="id"
+                value="{new_phone>/value/id/value}"
+                valueState="{new_phone>/value/id/valueState}"
+                valueStateText="{new_phone>/value/id/valueStateText}"
+                liveChange=".checkPhoneId"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
-                value="{new_phone>/hello/id}"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Specification ID" labelFor="specification_id" />
             <Input
                 id="specification_id"
+                value="{new_phone>/value/specification_id/value}"
+                valueState="{new_phone>/value/specification_id/valueState}"
+                valueStateText="{new_phone>/value/specification_id/valueStateText}"
                 type="Number"
                 placeholder="Ex: 545"
-                value="{new_phone>/hello/key/specification_id}"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Color" labelFor="color" />
             <Input
                 id="color"
-                value="{new_phone>/hello/color}"
+                value="{new_phone>/value/color/value}"
+                valueState="{new_phone>/value/color/valueState}"
+                valueStateText="{new_phone>/value/color/valueStateText}"
                 placeholder="Ex: BLACK, YELOW, BLUE, ..."
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Storage (GB)" labelFor="storage" />
             <Input
                 id="storage"
-                value="{new_phone>/hello/storage}"
+                value="{new_phone>/value/storage/value}"
+                valueState="{new_phone>/value/storage/valueState}"
+                valueStateText="{new_phone>/value/storage/valueStateText}"
                 type="Number"
                 placeholder="Ex: 128, 256, 512, ..."
                 class="sapUiSmallMarginBottom" />
@@ -44,7 +53,9 @@
             <Label text="Guarantee (month)" labelFor="guarantee" />
             <Input
                 id="guarantee"
-                value="{new_phone>/hello/guarantee}"
+                value="{new_phone>/value/guarantee/value}"
+                valueState="{new_phone>/value/guarantee/valueStateText}"
+                valueStateText="{new_phone>/value/guarantee/valueStateText}"
                 type="Number"
                 placeholder="Ex: 6, 12, 24, 36, ..."
                 class="sapUiSmallMarginBottom" />
@@ -52,15 +63,19 @@
             <Label text="Depreciation (%)" labelFor="depreciation" />
             <Input
                 id="depreciation"
-                value="{new_phone>/hello/depreciation}"
+                value="{new_phone>/value/depreciation/value}"
+                valueState="{new_phone>/value/depreciation/valueState}"
+                valueStateText="{new_phone>/value/depreciation/valueStateText}"
                 type="Number"
                 placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Fake price (VND)" labelFor="fake_price" />
             <Input
+                value="{new_phone>/value/fake_price/value}"
+                valueState="{new_phone>/value/fake_price/valueState}"
+                valueStateText="{new_phone>/value/fake_price/valueStateText}"
                 id="fake_price"
-                value="{new_phone>/hello/fake_price}"
                 type="Number"
                 placeholder="Ex: 19000000"
                 class="sapUiSmallMarginBottom" />
@@ -68,15 +83,19 @@
             <Label text="Real price (VND)" labelFor="real_price" />
             <Input
                 id="real_price"
-                value="{new_phone>/hello/real_price}"
+                value="{new_phone>/value/real_price/value}"
+                valueState="{new_phone>/value/real_price/valueState}"
+                valueStateText="{new_phone>/value/real_price/valueStateText}"
                 type="Number"
                 placeholder="Ex: 23000000"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Status" labelFor="status" />
             <Input
+                value="{new_phone>/value/status/value}"
+                valueState="{new_phone>/value/status/valueState}"
+                valueStateText="{new_phone>/value/status/valueStateText}"
                 id="status"
-                value="{new_phone>/hello/status}"
                 placeholder="Ex: IN_STOCK, STOCK_OUT"
                 class="sapUiSmallMarginBottom" />
         </l:VerticalLayout>
@@ -87,7 +106,7 @@
         </Button>
 
         <!-- START CUSTOM CONTROL -->
-        <course:ProductRate />
+        <!-- <course:ProductRate /> -->
         <!-- END CUSTOM CONTROL -->
 
     </Page>
