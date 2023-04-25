@@ -23,7 +23,9 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueStateText="{new_phone>/value/id/valueStateText}"
                 description="{=${new_phone>/value/id/isLoading} ? 'validating...' : ' '}"
                 change=".checkPhoneId"
+                type="Text"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Specification ID" labelFor="specification_id" />
@@ -34,6 +36,7 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueStateText="{new_phone>/value/specification_id/valueStateText}"
                 type="Number"
                 placeholder="Ex: 545"
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Color" labelFor="color" />
@@ -43,6 +46,7 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueState="{new_phone>/value/color/valueState}"
                 valueStateText="{new_phone>/value/color/valueStateText}"
                 placeholder="Ex: BLACK, YELOW, BLUE, ..."
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Storage (GB)" labelFor="storage" />
@@ -53,16 +57,18 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueStateText="{new_phone>/value/storage/valueStateText}"
                 type="Number"
                 placeholder="Ex: 128, 256, 512, ..."
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Guarantee (month)" labelFor="guarantee" />
             <Input
                 id="guarantee"
                 value="{new_phone>/value/guarantee/value}"
-                valueState="{new_phone>/value/guarantee/valueStateText}"
+                valueState="{new_phone>/value/guarantee/valueState}"
                 valueStateText="{new_phone>/value/guarantee/valueStateText}"
                 type="Number"
                 placeholder="Ex: 6, 12, 24, 36, ..."
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Depreciation (%)" labelFor="depreciation" />
@@ -73,6 +79,7 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueStateText="{new_phone>/value/depreciation/valueStateText}"
                 type="Number"
                 placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Fake price (VND)" labelFor="fake_price" />
@@ -83,6 +90,7 @@ valueHelpIconSrc="sap-icon://accept" -->
                 id="fake_price"
                 type="Number"
                 placeholder="Ex: 19000000"
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Real price (VND)" labelFor="real_price" />
@@ -93,6 +101,7 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueStateText="{new_phone>/value/real_price/valueStateText}"
                 type="Number"
                 placeholder="Ex: 23000000"
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
             <Label text="Status" labelFor="status" />
@@ -102,6 +111,7 @@ valueHelpIconSrc="sap-icon://accept" -->
                 valueStateText="{new_phone>/value/status/valueStateText}"
                 id="status"
                 placeholder="Ex: IN_STOCK, STOCK_OUT"
+                liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
         </l:VerticalLayout>
 

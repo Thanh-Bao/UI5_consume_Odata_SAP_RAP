@@ -18,47 +18,56 @@ sap.ui.define([
                             value: null,
                             valueState: null,
                             valueStateText: null,
-                            isLoading: false
+                            isLoading: false,
+                            type: 'Text'
                         },
                         specification_id: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Number'
                         },
                         color: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Text'
                         },
                         storage: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Number'
                         },
                         guarantee: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Number'
                         },
                         depreciation: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Number'
                         },
                         fake_price: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Number'
                         },
                         real_price: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Number'
                         },
                         status: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            type: 'Text'
                         }
                     }
 
@@ -100,29 +109,52 @@ sap.ui.define([
 
             },
 
+            onchangeData: function (event) {
+                this.getView().byId(event.getSource().getId()).setProperty(`valueStateText`, null);
+                this.getView().byId(event.getSource().getId()).setProperty(`valueState`, null);
+            },
+
             submitNewPhone: function () {
-                BusyIndicator.show(0);
-                const _newPhoneFromView = this.getView().getModel('new_phone').getProperty("/value");
-
-                const _newPhonePayloadOdata = {};
-
-                for (const property in _newPhoneFromView) {
-                    _newPhonePayloadOdata[property] = _newPhoneFromView[property].value;
+                const validationUserInput = () => {
+                    const _oModel = this.getView().getModel('new_phone');
+                    const _currentPhone = this.getView().getModel('new_phone').getProperty("/value");
+                    let result = [];
+                    for (const property in _currentPhone) {
+                        if (!_currentPhone[property].value) {
+                            _oModel.setProperty(`/value/${property}/valueState`, "Error");
+                            _oModel.setProperty(`/value/${property}/valueStateText`, "This field is required and cannot be empty!");
+                            result.push(false);
+                        } else {
+                            result.push(true);
+                        }
+                    }
+                    return result.every(item => item == true);
                 }
 
-                console.log("XXXX", _newPhonePayloadOdata)
-
-                this.getView().getModel().create("/ZC_PHONE_PRICE", _newPhonePayloadOdata, {
-                    success: function () {
-                        MessageToast.show("Create successful");
-                        BusyIndicator.hide();
-                    },
-                    error: function (err) {
-                        MessageBox.error(JSON.parse(err.responseText).error.message.value);
-                        BusyIndicator.hide();
+                if (validationUserInput()) {
+                    BusyIndicator.show(0);
+                    const _newPhoneFromView = this.getView().getModel('new_phone').getProperty("/value");
+                    const _newPhonePayloadOdata = {};
+                    for (const property in _newPhoneFromView) {
+                        if (_newPhoneFromView[property].type === 'Number') {
+                            _newPhonePayloadOdata[property] = Number(_newPhoneFromView[property].value);
+                        } else {
+                            _newPhonePayloadOdata[property] = _newPhoneFromView[property].value;
+                        }
                     }
-                });
-
+                    this.getView().getModel().create("/ZC_PHONE_PRICE", _newPhonePayloadOdata, {
+                        success: function () {
+                            MessageToast.show("Create successful");
+                            BusyIndicator.hide();
+                        },
+                        error: function (err) {
+                            MessageBox.error(JSON.parse(err.responseText).error.message.value);
+                            BusyIndicator.hide();
+                        }
+                    });
+                } else {
+                    console.log("Validation return false=>")
+                }
             }
         });
     });
