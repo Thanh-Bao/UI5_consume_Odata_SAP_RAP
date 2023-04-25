@@ -10,6 +10,9 @@
     xmlns:course="baobaostore.com.control"
 >
 
+    <!-- showValueHelp="{=${new_phone>/value/id/valueStateText}===null &
+    ${new_phone>/value/id/valueStateText}===null  ? true : false }"
+valueHelpIconSrc="sap-icon://accept" -->
     <Page>
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <Label text="ID" labelFor="id" />
@@ -18,9 +21,7 @@
                 value="{new_phone>/value/id/value}"
                 valueState="{new_phone>/value/id/valueState}"
                 valueStateText="{new_phone>/value/id/valueStateText}"
-                description="sap-icon://accept"
-                showValueHelp="true"
-                valueHelpIconSrc="sap-icon://accept"
+                description="{=${new_phone>/value/id/isLoading} ? 'validating...' : ' '}"
                 change=".checkPhoneId"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
                 class="sapUiSmallMarginBottom" />

@@ -17,7 +17,8 @@ sap.ui.define([
                         id: {
                             value: null,
                             valueState: null,
-                            valueStateText: null
+                            valueStateText: null,
+                            isLoading: false
                         },
                         specification_id: {
                             value: null,
@@ -71,19 +72,23 @@ sap.ui.define([
                 const _phoneId = e.getParameters().value;
                 let _oModel = this.getView().getModel('new_phone');
                 _oModel.setProperty("/value/id/valueState", null);
-
                 if (_phoneId) {
+                    _oModel.setProperty("/value/id/isLoading", true);
                     this.getView().getModel().read('/ZC_PHONE_PRICE/$count', {
                         filters: [new Filter("id", "EQ", _phoneId)],
                         success: function (count) {
                             if (count > 0) {
                                 _oModel.setProperty("/value/id/valueState", "Error");
                                 _oModel.setProperty("/value/id/valueStateText", "phone ID already exists!");
+                                _oModel.setProperty("/value/id/isLoading", false);
                             } else {
                                 _oModel.setProperty("/value/id/valueState", "Success");
+                                _oModel.setProperty("/value/id/valueStateText", null);
+                                _oModel.setProperty("/value/id/isLoading", false);
                             }
                         },
                         error: function (err) {
+                            _oModel.setProperty("/value/id/isLoading", false);
                             console.log("/ZC_PHONE_PRICE/$count=>", err)
                             alert("/ZC_PHONE_PRICE/$count ERROR!!!")
                         }
