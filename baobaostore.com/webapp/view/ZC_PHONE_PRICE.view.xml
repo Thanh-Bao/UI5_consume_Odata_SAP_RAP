@@ -79,7 +79,7 @@
                         </Column>
                         <Column
                             hAlign="Center">
-                            <Text text="Depreciation (%)" />
+                            <Text text="Old or new (%)" />
                         </Column>
                         <Column
                             hAlign="End">
@@ -109,7 +109,7 @@
                                 <Text
                                     text="{guarantee}" />
                                 <Text
-                                    text="{= ${depreciation} > 0 ? ${depreciation}  : 'New' }" />
+                                    text="{= ${depreciation} === 100 ?  'New' : ${depreciation} }" />
                                 <Text
                                     text="{
 								path: 'fake_price',

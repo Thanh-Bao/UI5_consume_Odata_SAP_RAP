@@ -13,7 +13,7 @@ sap.ui.define([
             formatter: formatter,
             _filters_condition: {
                 all_product: [],
-                new_product: [new Filter("depreciation", "EQ", 0)],
+                new_product: [new Filter("depreciation", "EQ", 100)],
                 used_product: [new Filter("depreciation", "GT", 0)],
                 in_stock: [new Filter("status", "EQ", "IN_STOCK")]
             },

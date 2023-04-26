@@ -87,16 +87,21 @@
                 </items>
             </ComboBox>
 
-            <Label text="Depreciation (%):" labelFor="depreciation" required='true' />
-            <Input
-                id="depreciation"
+            <Label text="Old or new (%):" labelFor="depreciation" required='true' />
+            <ComboBox id="depreciation"
                 value="{new_phone>/value/depreciation/value}"
                 valueState="{new_phone>/value/depreciation/valueState}"
                 valueStateText="{new_phone>/value/depreciation/valueStateText}"
-                type="{new_phone>/value/depreciation/type}"
-                placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
-                liveChange=".onchangeData"
-                class="sapUiSmallMarginBottom" />
+                change=".onchangeData"
+                class="sapUiSmallMarginBottom"
+            >
+                <items>
+                    <core:Item text="100" />
+                    <core:Item text="99" />
+                    <core:Item text="98" />
+                    <core:Item text="95" />
+                </items>
+            </ComboBox>
 
             <Label text="Fake price (VND):" labelFor="fake_price" required='true' />
             <Input
@@ -137,7 +142,10 @@
         </l:VerticalLayout>
 
 
-        <Button text="Submit"
+        <Button
+            text="Submit"
+            type="Emphasized"
+            icon="sap-icon://save"
             press=".submitNewPhone">
         </Button>
 
