@@ -55,13 +55,17 @@ sap.ui.define([
                             value: null,
                             valueState: null,
                             valueStateText: null,
-                            type: 'Number'
+                            type: 'Number',
+                            min: 2000000,
+                            max: 50000000
                         },
                         real_price: {
                             value: null,
                             valueState: null,
                             valueStateText: null,
-                            type: 'Number'
+                            type: 'Number',
+                            min: 2000000,
+                            max: 50000000
                         },
                         status: {
                             value: null,
@@ -110,18 +114,21 @@ sap.ui.define([
             },
 
             onchangeData: function (event) {
+                // console.log(event.getParameters().value) //=> get user input
                 this.getView().byId(event.getSource().getId()).setProperty(`valueStateText`, null);
                 this.getView().byId(event.getSource().getId()).setProperty(`valueState`, null);
+                this.getView().byId(event.getSource().getId()).setProperty(`value`, "abc123");
+
             },
 
             submitNewPhone: function () {
                 const validationUserInput = () => {
                     const _oModel = this.getView().getModel('new_phone');
                     const _currentPhone = this.getView().getModel('new_phone').getProperty("/value");
-                    /////////
-                    console.log(_currentPhone)
-                    /////////
+
                     let result = [];
+
+                    //Step 1: check empty
                     for (const property in _currentPhone) {
                         if (!_currentPhone[property].value) {
                             _oModel.setProperty(`/value/${property}/valueState`, "Error");
@@ -131,6 +138,34 @@ sap.ui.define([
                             result.push(true);
                         }
                     }
+
+                    //Step 2: Check min max price
+                    for (const property in _currentPhone) {
+                        const _prop = _currentPhone[property];
+                        const isEmpty = _prop.value == null && _prop.value == '';
+                        const _price = Number(_prop.value);
+
+                        if (!isEmpty && _price < _prop.min) {
+                            _oModel.setProperty(`/value/${property}/valueState`, "Error");
+                            _oModel.setProperty(`/value/${property}/valueStateText`, "price must be more than 2M");
+                            result.push(false);
+                        } else if (!isEmpty && _price > _prop.max) {
+                            _oModel.setProperty(`/value/${property}/valueState`, "Error");
+                            _oModel.setProperty(`/value/${property}/valueStateText`, "price must be less than 50M");
+                        } else {
+                            result.push(true);
+                        }
+                    }
+
+                    // Step 3: Check if real_price is greater than fake_price
+                    const _real_price = Number(this.getView().byId('real_price').getValue());
+                    const _fake_price = Number(this.getView().byId('fake_price').getValue());
+                    if (_real_price < _fake_price) {
+                        _oModel.setProperty(`/value/real_price/valueState`, "Error");
+                        _oModel.setProperty(`/value/real_price/valueStateText`, "real price must be more than fake price");
+                    }
+
+
                     return result.every(item => item == true);
                 }
 
