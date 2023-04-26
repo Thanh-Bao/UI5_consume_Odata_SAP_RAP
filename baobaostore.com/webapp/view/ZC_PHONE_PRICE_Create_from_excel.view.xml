@@ -13,6 +13,7 @@
                             </contentMiddle>
                             <contentRight>
                                 <u:FileUploader id="FileUploaderId" sameFilenameAllowed="true"
+                                    buttonText="upload excel file"
                                     iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
                                     icon="sap-icon://upload" iconFirst="true" style="Emphasized"
                                     change="onUpload" />
