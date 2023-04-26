@@ -160,7 +160,7 @@ sap.ui.define([
                     // Step 3: Check if real_price is greater than fake_price
                     const _real_price = Number(this.getView().byId('real_price').getValue());
                     const _fake_price = Number(this.getView().byId('fake_price').getValue());
-                    if (_real_price < _fake_price) {
+                    if (_real_price > _fake_price) {
                         _oModel.setProperty(`/value/real_price/valueState`, "Error");
                         _oModel.setProperty(`/value/real_price/valueStateText`, "real price must be more than fake price");
                     }
