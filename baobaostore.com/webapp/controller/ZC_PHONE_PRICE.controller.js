@@ -54,7 +54,7 @@ sap.ui.define([
             },
 
             onAddNewPhonePressBtn: function (oEvent) {
-                var oRouter = this.getOwnerComponent().getRouter();
+                const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("ZC_PHONE_PRICE_Create");
             },
 

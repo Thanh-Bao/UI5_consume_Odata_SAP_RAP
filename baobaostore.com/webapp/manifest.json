@@ -108,6 +108,11 @@
           "pattern": "ZC_PHONE_PRICE_Create",
           "name": "ZC_PHONE_PRICE_Create",
           "target": "ZC_PHONE_PRICE_Create"
+        },
+        {
+          "pattern": "ZC_PHONE_PRICE_Create_from_excel",
+          "name": "ZC_PHONE_PRICE_Create_from_excel",
+          "target": "ZC_PHONE_PRICE_Create_from_excel"
         }
       ],
       "targets": {
@@ -121,6 +126,10 @@
         "ZC_PHONE_PRICE_Create": {
           "viewId": "ZC_PHONE_PRICE_Create",
           "viewName": "ZC_PHONE_PRICE_Create"
+        },
+        "ZC_PHONE_PRICE_Create_from_excel": {
+          "viewId": "ZC_PHONE_PRICE_Create_from_excel",
+          "viewName": "ZC_PHONE_PRICE_Create_from_excel"
         }
       }
     },

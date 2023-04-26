@@ -193,6 +193,10 @@ sap.ui.define([
                 } else {
 
                 }
+            },
+            navigateToExcelUpload: function () {
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("ZC_PHONE_PRICE_Create_from_excel");
             }
         });
     });

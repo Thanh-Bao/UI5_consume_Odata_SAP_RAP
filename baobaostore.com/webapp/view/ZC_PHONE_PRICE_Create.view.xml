@@ -149,6 +149,13 @@
             press=".submitNewPhone">
         </Button>
 
+        <Button
+            text="Create from excel file"
+            type="Success"
+            icon="sap-icon://excel-attachment"
+            press=".navigateToExcelUpload">
+        </Button>
+
         <!-- START CUSTOM CONTROL -->
         <!-- <course:ProductRate /> -->
         <!-- END CUSTOM CONTROL -->
