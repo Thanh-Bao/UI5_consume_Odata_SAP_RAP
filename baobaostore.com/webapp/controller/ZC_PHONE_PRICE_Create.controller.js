@@ -118,6 +118,9 @@ sap.ui.define([
                 const validationUserInput = () => {
                     const _oModel = this.getView().getModel('new_phone');
                     const _currentPhone = this.getView().getModel('new_phone').getProperty("/value");
+                    /////////
+                    console.log(_currentPhone)
+                    /////////
                     let result = [];
                     for (const property in _currentPhone) {
                         if (!_currentPhone[property].value) {
@@ -153,7 +156,7 @@ sap.ui.define([
                         }
                     });
                 } else {
-                    console.log("Validation return false=>")
+
                 }
             }
         });

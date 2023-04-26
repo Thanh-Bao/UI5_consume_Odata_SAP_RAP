@@ -12,6 +12,12 @@ sap.ui.define([], function () {
                 case 'STOCK_OUT':
                     status_label = 'Stock out';
                     break;
+                case 'STOP_SELLING':
+                    status_label = 'Stop selling';
+                    break;
+                default:
+                    status_label = "format error!";
+                    break;
             }
             return status_label;
         },
