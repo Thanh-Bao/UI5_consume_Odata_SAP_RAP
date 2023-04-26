@@ -9,37 +9,34 @@
     busyIndicatorDelay="0"
     xmlns:course="baobaostore.com.control"
 >
-
-    <!-- showValueHelp="{=${new_phone>/value/id/valueStateText}===null &
-    ${new_phone>/value/id/valueStateText}===null  ? true : false }"
-valueHelpIconSrc="sap-icon://accept" -->
     <Page>
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
-            <Label text="ID" labelFor="id" />
+            <Label text="ID:" labelFor="id" required='true' />
             <Input
                 id="id"
                 value="{new_phone>/value/id/value}"
                 valueState="{new_phone>/value/id/valueState}"
                 valueStateText="{new_phone>/value/id/valueStateText}"
                 description="{=${new_phone>/value/id/isLoading} ? 'validating...' : ' '}"
+                showValueHelp="{= ${new_phone>/value/id/valueState} === 'Success' ? true : false}"
+                valueHelpIconSrc="sap-icon://accept"
                 change=".checkPhoneId"
-                type="Text"
                 placeholder="Ex: Iphone-11-Pro-blue-128GB"
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Specification ID" labelFor="specification_id" />
+            <Label text="Specification ID:" labelFor="specification_id" required='true' />
             <Input
                 id="specification_id"
                 value="{new_phone>/value/specification_id/value}"
                 valueState="{new_phone>/value/specification_id/valueState}"
                 valueStateText="{new_phone>/value/specification_id/valueStateText}"
-                type="Number"
+                type="{new_phone>/value/specification_id/type}"
                 placeholder="Ex: 545"
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Color" labelFor="color" />
+            <Label text="Color:" labelFor="color" required='true' />
             <Input
                 id="color"
                 value="{new_phone>/value/color/value}"
@@ -49,62 +46,71 @@ valueHelpIconSrc="sap-icon://accept" -->
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Storage (GB)" labelFor="storage" />
+            <!-- <ComboBox id="box0">
+                <items>
+                    <core:Item xmlns:core="sap.ui.core" key="item-1-key"
+                        text="Item 1 Text" id="item0" />
+                    <core:Item xmlns:core="sap.ui.core" key="item-2-key"
+                        text="Item 2 Text" id="item1" />
+                </items>
+            </ComboBox> -->
+
+            <Label text="Storage (GB):" labelFor="storage" required='true' />
             <Input
                 id="storage"
                 value="{new_phone>/value/storage/value}"
                 valueState="{new_phone>/value/storage/valueState}"
                 valueStateText="{new_phone>/value/storage/valueStateText}"
-                type="Number"
+                type="{new_phone>/value/storage/type}"
                 placeholder="Ex: 128, 256, 512, ..."
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Guarantee (month)" labelFor="guarantee" />
+            <Label text="Guarantee (month):" labelFor="guarantee" required='true' />
             <Input
                 id="guarantee"
                 value="{new_phone>/value/guarantee/value}"
                 valueState="{new_phone>/value/guarantee/valueState}"
                 valueStateText="{new_phone>/value/guarantee/valueStateText}"
-                type="Number"
+                type="{new_phone>/value/guarantee/type}"
                 placeholder="Ex: 6, 12, 24, 36, ..."
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Depreciation (%)" labelFor="depreciation" />
+            <Label text="Depreciation (%):" labelFor="depreciation" required='true' />
             <Input
                 id="depreciation"
                 value="{new_phone>/value/depreciation/value}"
                 valueState="{new_phone>/value/depreciation/valueState}"
                 valueStateText="{new_phone>/value/depreciation/valueStateText}"
-                type="Number"
+                type="{new_phone>/value/depreciation/type}"
                 placeholder="Ex: New = 0, 99% -> 1, 98% -> 2, ..."
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Fake price (VND)" labelFor="fake_price" />
+            <Label text="Fake price (VND):" labelFor="fake_price" required='true' />
             <Input
                 value="{new_phone>/value/fake_price/value}"
                 valueState="{new_phone>/value/fake_price/valueState}"
                 valueStateText="{new_phone>/value/fake_price/valueStateText}"
                 id="fake_price"
-                type="Number"
+                type="{new_phone>/value/fake_price/type}"
                 placeholder="Ex: 19000000"
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Real price (VND)" labelFor="real_price" />
+            <Label text="Real price (VND):" labelFor="real_price" required='true' />
             <Input
                 id="real_price"
                 value="{new_phone>/value/real_price/value}"
                 valueState="{new_phone>/value/real_price/valueState}"
                 valueStateText="{new_phone>/value/real_price/valueStateText}"
-                type="Number"
+                type="{new_phone>/value/real_price/type}"
                 placeholder="Ex: 23000000"
                 liveChange=".onchangeData"
                 class="sapUiSmallMarginBottom" />
 
-            <Label text="Status" labelFor="status" />
+            <Label text="Status:" labelFor="status" required='true' />
             <Input
                 value="{new_phone>/value/status/value}"
                 valueState="{new_phone>/value/status/valueState}"
