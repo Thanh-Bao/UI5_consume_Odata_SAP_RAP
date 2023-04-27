@@ -88,6 +88,10 @@
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {}
+            },
+            "movies": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Movies.json"
             }
         },
         "resources": {
