@@ -109,20 +109,20 @@
             },
             "routes": [
                 {
-                    "name": "RouteView1",
+                    "name": "RouteDashboard",
                     "pattern": ":?query:",
                     "target": [
-                        "TargetView1"
+                        "TargetDashboard"
                     ]
                 }
             ],
             "targets": {
-                "TargetView1": {
+                "TargetDashboard": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
-                    "viewId": "View1",
-                    "viewName": "View1"
+                    "viewId": "Dashboard",
+                    "viewName": "Dashboard"
                 }
             }
         },
