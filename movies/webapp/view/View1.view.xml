@@ -1,0 +1,27 @@
+<mvc:View controllerName="movies.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content />
+    </Page>
+    <Table
+        id="Iphone_table"
+        updateFinished=".onUpdateFinished"
+        inset="false"
+        items="{/ZC_MOVIES}">
+        <columns>
+            <Column>
+                <Text text="ID" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                    <Text
+                        text="{id}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+</mvc:View>
