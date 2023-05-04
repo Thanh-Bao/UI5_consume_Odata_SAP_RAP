@@ -109,7 +109,8 @@
                 "viewPath": "movies.view",
                 "controlAggregation": "pages",
                 "controlId": "app",
-                "clearControlAggregation": false
+                "clearControlAggregation": false,
+                "transition": "flip"
             },
             "routes": [
                 {
@@ -130,12 +131,6 @@
                     "clearControlAggregation": false,
                     "viewId": "Dashboard",
                     "viewName": "Dashboard"
-                },
-                "Home": {
-                    "viewType": "XML",
-                    "clearControlAggregation": false,
-                    "viewId": "Home",
-                    "viewName": "Home"
                 },
                 "Detail": {
                     "viewType": "XML",

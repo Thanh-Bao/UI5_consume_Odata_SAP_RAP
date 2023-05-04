@@ -43,7 +43,7 @@ sap.ui.define([
         ,
 
         onNavBack: function () {
-            UIComponent.getRouterFor(this).navTo("Home");
+            UIComponent.getRouterFor(this).navTo("RouteDashboard");
         }
 
 
