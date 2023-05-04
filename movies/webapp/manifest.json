@@ -110,7 +110,10 @@
                 "controlAggregation": "pages",
                 "controlId": "app",
                 "clearControlAggregation": false,
-                "transition": "flip"
+                "transition": "flip",
+                "bypassed": {
+                    "target": "notFound"
+                }
             },
             "routes": [
                 {
@@ -136,6 +139,10 @@
                     "viewType": "XML",
                     "viewId": "Detail",
                     "viewName": "Detail"
+                },
+                "notFound": {
+                    "viewId": "notFound",
+                    "viewName": "NotFound"
                 }
             }
         },
