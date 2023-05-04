@@ -115,9 +115,12 @@
                 {
                     "name": "RouteDashboard",
                     "pattern": ":?query:",
-                    "target": [
-                        "TargetDashboard"
-                    ]
+                    "target": "TargetDashboard"
+                },
+                {
+                    "name": "Detail",
+                    "pattern": "movies/{movieId}/appointments/{appointmentId}",
+                    "target": "Detail"
                 }
             ],
             "targets": {
@@ -127,6 +130,17 @@
                     "clearControlAggregation": false,
                     "viewId": "Dashboard",
                     "viewName": "Dashboard"
+                },
+                "Home": {
+                    "viewType": "XML",
+                    "clearControlAggregation": false,
+                    "viewId": "Home",
+                    "viewName": "Home"
+                },
+                "Detail": {
+                    "viewType": "XML",
+                    "viewId": "Detail",
+                    "viewName": "Detail"
                 }
             }
         },
