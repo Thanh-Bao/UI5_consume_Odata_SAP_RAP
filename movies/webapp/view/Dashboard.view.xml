@@ -58,7 +58,7 @@
                         <Button
                             text="{i18n>buttonMovieSearch}"
                             class="sapUiSmallMarginTop"
-                            press="sap.m.MessageToast.show(${i18n>messageToast})"
+                            press=".onPress"
                             type="Emphasized" />
 
                     </f:content>

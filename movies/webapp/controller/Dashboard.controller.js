@@ -21,8 +21,8 @@ sap.ui.define([
             onPress: function (sValue) {
                 sap.ui.require(["sap/m/MessageToast"], function (oMessage) {
                     var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-                    oMessage.show(oResourceBundle.getText("search") + sValue
-                    );
+                    // oMessage.show(oResourceBundle.getText("search") + sValue
+                    // );
                 }.bind(this));
 
                 var sCity = this.byId('city').getValue(),
