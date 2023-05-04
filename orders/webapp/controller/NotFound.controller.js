@@ -6,7 +6,7 @@ sap.ui.define([
     "use strict";
 
 
-    return Controller.extend("movies.controller.NotFound", {
+    return Controller.extend("orders.controller.NotFound", {
 
         onInit: function () {
             var oRouter, oTarget;

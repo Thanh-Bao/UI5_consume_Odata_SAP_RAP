@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="movies.controller.Dashboard"
+    controllerName="orders.controller.Dashboard"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
@@ -65,8 +65,8 @@
                 </f:SimpleForm>
                 <PlanningCalendar
                     id="calendar"
-                    startDate="{path: 'movies>/initDate', formatter: '.formatter.formatDate'}"
-                    rows="{movies>/movies}"
+                    startDate="{path: 'orders>/initDate', formatter: '.formatter.formatDate'}"
+                    rows="{orders>/orders}"
                     appointmentsVisualization="Filled"
                     appointmentSelect=".onAppointmentSelect(${$parameters>/appointment})"
                 >
@@ -75,17 +75,17 @@
                     </toolbarContent>
                     <rows>
                         <PlanningCalendarRow
-                            title="{movies>name}"
-                            text="{movies>genre}"
-                            appointments="{path: 'movies>appointments', templateShareable: 'true'}">
+                            title="{orders>name}"
+                            text="{orders>genre}"
+                            appointments="{path: 'orders>appointments', templateShareable: 'true'}">
                             <appointments>
                                 <unified:CalendarAppointment
-                                    startDate="{path: 'movies>startDate', formatter: '.formatter.formatDate'}"
-                                    endDate="{path: 'movies>endDate', formatter: '.formatter.formatDate'}"
-                                    title="{movies>info}"
-                                    text="{movies>cinemaName}"
-                                    icon="{movies>icon}"
-                                    type="{movies>type}">
+                                    startDate="{path: 'orders>startDate', formatter: '.formatter.formatDate'}"
+                                    endDate="{path: 'orders>endDate', formatter: '.formatter.formatDate'}"
+                                    title="{orders>info}"
+                                    text="{orders>cinemaName}"
+                                    icon="{orders>icon}"
+                                    type="{orders>type}">
                                 </unified:CalendarAppointment>
                             </appointments>
                         </PlanningCalendarRow>

@@ -4,12 +4,12 @@ sap.ui.define([
 ], function (Controller, UIComponent) {
     "use strict";
 
-    return Controller.extend("movies.controller.Detail", {
+    return Controller.extend("orders.controller.Detail", {
 
         /**
          * Called when a controller is instantiated and its View controls (if available) are already created.
          * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-         * @memberOf opensap.movies.view.Detail
+         * @memberOf opensap.orders.view.Detail
          */
         onInit: function () {
             UIComponent.getRouterFor(this).getRoute("Detail").attachPatternMatched(this._onDetailMatched, this);
@@ -21,8 +21,8 @@ sap.ui.define([
                 sAppointmentIndex = oEvent.getParameter("arguments")["appointmentId"];
 
             oView.bindElement({
-                path: "/movies/" + sMovieIndex + "/appointments/" + sAppointmentIndex,
-                model: "movies",
+                path: "/orders/" + sMovieIndex + "/appointments/" + sAppointmentIndex,
+                model: "orders",
                 events: {
                     change: this._onBindingChange.bind(this)
                 }
@@ -31,11 +31,11 @@ sap.ui.define([
 
         _onBindingChange: function () {
             var oView = this.getView(),
-                oElementBinding = oView.getElementBinding("movies"),
+                oElementBinding = oView.getElementBinding("orders"),
                 sPath = oElementBinding.getPath();
 
             // if the path to the data does not exist we navigate to the not found page
-            if (!oView.getModel("movies").getObject(sPath)) {
+            if (!oView.getModel("orders").getObject(sPath)) {
                 //See Challenge at the end: 	UIComponent.getRouterFor(this).getTargets().display("NotFound");
             }
         }

@@ -1,7 +1,7 @@
 {
     "_version": "1.48.0",
     "sap.app": {
-        "id": "movies",
+        "id": "orders",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -28,13 +28,13 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "movies-inbound": {
+                "orders-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "movies",
-                    "action": "movies",
+                    "semanticObject": "orders",
+                    "action": "orders",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
                     "icon": ""
@@ -81,7 +81,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "movies.i18n.i18n"
+                    "bundleName": "orders.i18n.i18n"
                 }
             },
             "": {
@@ -89,7 +89,7 @@
                 "preload": true,
                 "settings": {}
             },
-            "movies": {
+            "orders": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/Movies.json"
             }
@@ -106,7 +106,7 @@
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
                 "async": true,
-                "viewPath": "movies.view",
+                "viewPath": "orders.view",
                 "controlAggregation": "pages",
                 "controlId": "app",
                 "clearControlAggregation": false,
@@ -123,7 +123,7 @@
                 },
                 {
                     "name": "Detail",
-                    "pattern": "movies/{movieId}/appointments/{appointmentId}",
+                    "pattern": "orders/{movieId}/appointments/{appointmentId}",
                     "target": "Detail"
                 }
             ],
@@ -147,7 +147,7 @@
             }
         },
         "rootView": {
-            "viewName": "movies.view.App",
+            "viewName": "orders.view.App",
             "type": "XML",
             "async": true,
             "id": "App"

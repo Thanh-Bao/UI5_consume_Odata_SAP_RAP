@@ -69,16 +69,16 @@
       }
     },
     {
-      "name": "Start movies",
+      "name": "Start orders",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npx",
-      "cwd": "${workspaceFolder}/movies",
+      "cwd": "${workspaceFolder}/orders",
       "windows": {
         "runtimeExecutable": "npx.cmd"
       },
       "runtimeArgs": ["fiori", "run"],
-      "args": ["--open", "test/flpSandbox.html#movies-display"],
+      "args": ["--open", "test/flpSandbox.html#orders-display"],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
       "outputCapture": "std",
@@ -89,10 +89,10 @@
       }
     },
     {
-      "name": "Start movies Mock",
+      "name": "Start orders Mock",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/movies",
+      "cwd": "${workspaceFolder}/orders",
       "runtimeExecutable": "npx",
       "windows": {
         "runtimeExecutable": "npx.cmd"
@@ -102,7 +102,7 @@
         "--config",
         "./ui5-mock.yaml",
         "--open",
-        "test/flpSandbox.html#movies-display"
+        "test/flpSandbox.html#orders-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
@@ -113,10 +113,10 @@
       }
     },
     {
-      "name": "Start movies Local",
+      "name": "Start orders Local",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/movies",
+      "cwd": "${workspaceFolder}/orders",
       "runtimeExecutable": "npx",
       "windows": {
         "runtimeExecutable": "npx.cmd"
@@ -126,7 +126,7 @@
         "--config",
         "./ui5-local.yaml",
         "--open",
-        "test/flpSandbox.html#movies-display"
+        "test/flpSandbox.html#orders-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",

@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="movies.controller.Detail"
+    controllerName="orders.controller.Detail"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
@@ -7,8 +7,8 @@
     <App>
         <pages>
             <Page
-                title="{movies>cinemaName} - {
-					path: 'movies>startDate',
+                title="{orders>cinemaName} - {
+					path: 'orders>startDate',
 					type: 'sap.ui.model.type.Date',
 					formatOptions: {
 						source: {
@@ -27,25 +27,25 @@
                             id="generalDetails"
                             class="sapUiMediumMarginEnd sapUiSmallMarginBottom">
                             <core:Icon
-                                src="{movies>icon}"
+                                src="{orders>icon}"
                                 size="3rem"
                                 class="sapUiMediumMarginBottom" />
 
                             <Label text="{i18n>cinemaAddress}" design="Bold" />
-                            <Text text="{movies>cinemaAddress}" class="sapUiMediumMarginBottom" />
+                            <Text text="{orders>cinemaAddress}" class="sapUiMediumMarginBottom" />
 
                             <Label text="{i18n>special}" design="Bold" />
-                            <Text text="{movies>special}" class="sapUiMediumMarginBottom" />
+                            <Text text="{orders>special}" class="sapUiMediumMarginBottom" />
 
                             <Label text="{i18n>seats}" design="Bold" />
-                            <Text text="{movies>seats}" class="sapUiMediumMarginBottom" />
+                            <Text text="{orders>seats}" class="sapUiMediumMarginBottom" />
 
                             <Label text="{i18n>technicalDetails}" design="Bold" />
-                            <Text text="{movies>technicalDetails}" width="400px" />
+                            <Text text="{orders>technicalDetails}" width="400px" />
                         </l:VerticalLayout>
                         <Image
                             width="100%"
-                            src="{movies>pic}" />
+                            src="{orders>pic}" />
                     </FlexBox>
                 </content>
             </Page>

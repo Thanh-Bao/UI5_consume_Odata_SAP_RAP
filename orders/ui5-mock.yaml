@@ -2,7 +2,7 @@
 
 specVersion: "2.6"
 metadata:
-  name: movies
+  name: orders
 type: application
 server:
   customMiddleware:

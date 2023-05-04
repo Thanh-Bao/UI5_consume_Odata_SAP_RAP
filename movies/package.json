@@ -1,8 +1,8 @@
 {
-    "name": "movies",
+    "name": "orders",
     "version": "0.0.1",
     "private": true,
-    "description": "movies project",
+    "description": "orders project",
     "keywords": [
         "ui5",
         "openui5",
@@ -21,13 +21,13 @@
         "ui5-task-flatten-library": "0.2.5"
     },
     "scripts": {
-        "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#movies-display\"",
-        "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#movies-display\"",
+        "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#orders-display\"",
+        "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#orders-display\"",
         "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
         "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf archive.zip",
         "deploy-config": "fiori add deploy-config",
         "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
-        "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#movies-display\"",
+        "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#orders-display\"",
         "start-variants-management": "fiori run --open \"preview.html?sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
         "unit-tests": "fiori run --config ./ui5-mock.yaml --open 'test/unit/unitTests.qunit.html'",
         "int-tests": "fiori run --config ./ui5-mock.yaml --open 'test/integration/opaTests.qunit.html'",

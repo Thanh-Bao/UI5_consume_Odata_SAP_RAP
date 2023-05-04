@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"movies/controller/View1.controller"
+	"orders/controller/View1.controller"
 ], function (Controller) {
 	"use strict";
 

@@ -11,7 +11,7 @@ sap.ui.define([
     function (Controller, formatter, Filter, FilterOperator, UIComponent) {
         "use strict";
 
-        return Controller.extend("movies.controller.Dashboard", {
+        return Controller.extend("orders.controller.Dashboard", {
 
             formatter: formatter,
 
@@ -47,7 +47,7 @@ sap.ui.define([
                 });
             },
             onAppointmentSelect: function (oAppointment) {
-                var oContext = oAppointment.getBindingContext("movies"),
+                var oContext = oAppointment.getBindingContext("orders"),
                     sPath = oContext.getPath();
 
                 var aParameters = sPath.split("/");

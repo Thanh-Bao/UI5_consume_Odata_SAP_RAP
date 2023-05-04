@@ -1,4 +1,4 @@
-movies/node_modules/
+orders/node_modules/
 dist/
 .scp/
 .env

@@ -39,8 +39,8 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "movies",
-									"targetURL": "#movies-display"
+									"title": "orders",
+									"targetURL": "#orders-display"
 								}
 							}]
 						}]
@@ -51,18 +51,18 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"movies-display": {
-								"semanticObject": "movies",
+							"orders-display": {
+								"semanticObject": "orders",
 								"action": "display",
-								"description": "movies project",
-								"title": "movies",
+								"description": "orders project",
+								"title": "orders",
 								"signature": {
 									"parameters": {}
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=movies",
-									"url": sap.ui.require.toUrl("movies")
+									"additionalInformation": "SAPUI5.Component=orders",
+									"url": sap.ui.require.toUrl("orders")
 								}
 							}
 						}
