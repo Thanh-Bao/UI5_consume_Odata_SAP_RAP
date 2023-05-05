@@ -12,10 +12,11 @@
             <Title
                 id="listPageTitle"
                 text="{listView>/title}"
-                level="H2"/>
+                level="H2" />
         </semantic:titleHeading>
         <semantic:content>
-            <!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
+            <!-- For client side filtering add this to the items attribute: parameters:
+            {operationMode: 'Client'}}" -->
             <List
                 id="list"
                 width="auto"
@@ -23,9 +24,12 @@
                 items="{
                     path: '/SalesOrderSet',
                     sorter: {
-                        path: 'SalesOrderID',
-                        descending: false
+                        path: 'CreatedAt',
+                        descending: true
                     },
+                    parameters: {
+						'expand': 'ToBusinessPartner'
+					},
                     groupHeaderFactory: '.createGroupHeader'
                 }"
                 busyIndicatorDelay="{listView>/delay}"
@@ -45,7 +49,7 @@
                         <Title
                             id="filterBarLabel"
                             text="{listView>/filterBarLabel}"
-                            level="H3"/>
+                            level="H3" />
                     </Toolbar>
                 </infoToolbar>
 
@@ -62,26 +66,26 @@
                                     minWidth="150px"
                                     maxWidth="240px"
                                     shrinkable="true"
-                                    priority="NeverOverflow"/>
+                                    priority="NeverOverflow" />
                             </layoutData>
                         </SearchField>
-                        <ToolbarSpacer/>
+                        <ToolbarSpacer />
                         <Button
                             id="sortButton"
                             press=".onOpenViewSettings"
                             icon="sap-icon://sort"
-                            type="Transparent"/>
+                            type="Transparent" />
 
                         <Button
                             id="filterButton"
                             press=".onOpenViewSettings"
                             icon="sap-icon://filter"
-                            type="Transparent"/>
+                            type="Transparent" />
                         <Button
                             id="groupButton"
                             press=".onOpenViewSettings"
                             icon="sap-icon://group-2"
-                            type="Transparent"/>
+                            type="Transparent" />
 
                     </OverflowToolbar>
                 </headerToolbar>
@@ -92,9 +96,33 @@
                         title="{SalesOrderID}"
                         number="{
                             path: 'NetAmount',
-                            formatter: '.formatter.numberUnit'
+                            formatter: '.formatter.currencyValue'
                         }"
-                        unit="{CurrencyCode}" />
+                        numberUnit="{CurrencyCode}">
+                        <ObjectAttribute
+                            text="{
+			path: 'CreatedAt',
+			type: 'sap.ui.model.type.Date',
+			formatOptions: {
+				style: 'short'
+			}
+		}" />
+                        <ObjectAttribute text="{ToBusinessPartner/BusinessPartnerID}" />
+                        <firstStatus>
+                            <ObjectStatus
+                                title="{ToBusinessPartner/Address/Country}"
+                                text="{ToBusinessPartner/Address/City}" />
+                        </firstStatus>
+                        <markers>
+                            <ObjectMarker
+                                type="{=
+					 ${ToBusinessPartner/Address/Country} === 'MX' &amp;&amp;
+					 ${ToBusinessPartner/Address/City} ==='Mexiko City'
+					 ? 'Favorite' : 'Flagged'
+				}" />
+                        </markers>
+
+                    </ObjectListItem>
                 </items>
             </List>
         </semantic:content>
