@@ -101,10 +101,10 @@
                         numberUnit="{CurrencyCode}">
                         <ObjectAttribute
                             text="{
-			path: 'CreatedAt',
-			type: 'sap.ui.model.type.Date',
-			formatOptions: {
-				style: 'short'
+		                            	path: 'CreatedAt',
+			                            type: 'sap.ui.model.type.Date',
+		                            	formatOptions: {
+				                        style: 'short'
 			}
 		}" />
                         <ObjectAttribute text="{ToBusinessPartner/BusinessPartnerID}" />

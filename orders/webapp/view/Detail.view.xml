@@ -11,10 +11,10 @@
         <semantic:titleHeading>
             <Title
                 text="{SalesOrderID}"
-                level="H2"/>
+                level="H2" />
         </semantic:titleHeading>
         <semantic:headerContent>
-            <ObjectAttribute title="{i18n>priceTitle}"/>
+            <ObjectAttribute title="{i18n>priceTitle}" />
             <ObjectNumber
                 number="{
                     path: 'NetAmount',
@@ -27,7 +27,7 @@
             <Table
                 id="lineItemsList"
                 width="auto"
-                items="{SalesOrderLineItemSet}"
+                items="{ToLineItems}"
                 updateFinished=".onListUpdateFinished"
                 noDataText="{i18n>detailLineItemTableNoDataText}"
                 busyIndicatorDelay="{detailView>/lineItemTableDelay}">
@@ -37,18 +37,18 @@
                             id="lineItemsTitle"
                             text="{detailView>/lineItemListTitle}"
                             titleStyle="H3"
-                            level="H3"/>
+                            level="H3" />
                     </Toolbar>
                 </headerToolbar>
                 <columns>
                     <Column>
-                        <Text text="{i18n>detailLineItemTableIDColumn}"/>
+                        <Text text="{i18n>detailLineItemTableIDColumn}" />
                     </Column>
                     <Column
                         minScreenWidth="Tablet"
                         demandPopin="true"
                         hAlign="End">
-                        <Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+                        <Text text="{i18n>detailLineItemTableUnitNumberColumn}" />
                     </Column>
                 </columns>
                 <items>
@@ -56,7 +56,7 @@
                         <cells>
                             <ObjectIdentifier
                                 title="{ProductID}"
-                                text="{ItemPosition}"/>
+                                text="{ItemPosition}" />
                             <ObjectNumber
                                 number="{
                                     path: 'NetAmount',
@@ -68,30 +68,31 @@
                 </items>
             </Table>
         </semantic:content>
-        <!--Semantic ShareMenu Buttons-->
+        <!--Semantic
+        ShareMenu Buttons-->
         <semantic:sendEmailAction>
             <semantic:SendEmailAction
                 id="shareEmail"
-                press=".onSendEmailPress"/>
+                press=".onSendEmailPress" />
         </semantic:sendEmailAction>
 
         <semantic:closeAction>
             <semantic:CloseAction
-                    id="closeColumn"
-                    press=".onCloseDetailPress"/>
+                id="closeColumn"
+                press=".onCloseDetailPress" />
         </semantic:closeAction>
 
         <semantic:fullScreenAction>
             <semantic:FullScreenAction
-                    id="enterFullScreen"
-                    visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
-                    press=".toggleFullScreen"/>
+                id="enterFullScreen"
+                visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                press=".toggleFullScreen" />
         </semantic:fullScreenAction>
         <semantic:exitFullScreenAction>
             <semantic:ExitFullScreenAction
-                    id="exitFullScreen"
-                    visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
-                    press=".toggleFullScreen"/>
+                id="exitFullScreen"
+                visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                press=".toggleFullScreen" />
         </semantic:exitFullScreenAction>
 
     </semantic:SemanticPage>
