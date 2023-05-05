@@ -1,7 +1,8 @@
 /* global QUnit */
 
-sap.ui.require(["orders/test/integration/AllJourneys"
-], function () {
+sap.ui.require([
+	"opensap/orders/test/integration/AllJourneys"
+], function() {
 	QUnit.config.autostart = false;
 	QUnit.start();
 });

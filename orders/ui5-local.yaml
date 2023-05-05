@@ -2,11 +2,11 @@
 
 specVersion: "2.6"
 metadata:
-  name: orders
+  name: opensap.orders
 type: application
 framework:
   name: SAPUI5
-  version: 1.108.11
+  version: 1.113.0
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -30,15 +30,14 @@ server:
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - scp: true
-            path: /sap
-            url: https://6654aaf7-905f-48ea-b013-3811c03fcba8.abap.us10.hana.ondemand.com
+          - path: /sap
+            url: https://sapes5.sapdevcenter.com
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
         mountPath: /
         services:
-          - urlPath: /sap/opu/odata/sap/ZSDUI_MOVIES
+          - urlPath: /sap/opu/odata/IWBEP/GWSAMPLE_BASIC
             metadataPath: ./webapp/localService/metadata.xml
             mockdataPath: ./webapp/localService/data
             generateMockData: true
@@ -46,5 +45,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: orders
+        component: opensap.orders
         ui5Theme: sap_horizon

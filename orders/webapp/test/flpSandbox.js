@@ -39,8 +39,8 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "orders",
-									"targetURL": "#orders-display"
+									"title": "Browse Orders",
+									"targetURL": "#opensaporders-display"
 								}
 							}]
 						}]
@@ -51,18 +51,18 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"orders-display": {
-								"semanticObject": "orders",
+							"opensaporders-display": {
+								"semanticObject": "opensaporders",
 								"action": "display",
-								"description": "orders project",
-								"title": "orders",
+								"description": "App for displaying orders.",
+								"title": "Browse Orders",
 								"signature": {
 									"parameters": {}
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=orders",
-									"url": sap.ui.require.toUrl("orders")
+									"additionalInformation": "SAPUI5.Component=opensap.orders",
+									"url": sap.ui.require.toUrl("opensap/orders")
 								}
 							}
 						}

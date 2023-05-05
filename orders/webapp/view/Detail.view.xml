@@ -1,54 +1,99 @@
 <mvc:View
-    controllerName="orders.controller.Detail"
+    controllerName="opensap.orders.controller.Detail"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:l="sap.ui.layout"
-    xmlns:core="sap.ui.core">
-    <App>
-        <pages>
-            <Page
-                title="{orders>cinemaName} - {
-					path: 'orders>startDate',
-					type: 'sap.ui.model.type.Date',
-					formatOptions: {
-						source: {
-							pattern: 'MM/dd/yyyy/hh:mm:ss'
-						},
-						relative: true,
-						relativeScale: 'auto'
-					}
-				}"
-                showNavButton="true"
-                class="sapUiResponsiveContentPadding"
-                navButtonPress=".onNavBack">
-                <content>
-                    <FlexBox wrap="Wrap">
-                        <l:VerticalLayout
-                            id="generalDetails"
-                            class="sapUiMediumMarginEnd sapUiSmallMarginBottom">
-                            <core:Icon
-                                src="{orders>icon}"
-                                size="3rem"
-                                class="sapUiMediumMarginBottom" />
+    xmlns:semantic="sap.f.semantic"
+    xmlns:mvc="sap.ui.core.mvc">
 
-                            <Label text="{i18n>cinemaAddress}" design="Bold" />
-                            <Text text="{orders>cinemaAddress}" class="sapUiMediumMarginBottom" />
+    <semantic:SemanticPage
+        id="detailPage"
+        busy="{detailView>/busy}"
+        busyIndicatorDelay="{detailView>/delay}">
+        <semantic:titleHeading>
+            <Title
+                text="{SalesOrderID}"
+                level="H2"/>
+        </semantic:titleHeading>
+        <semantic:headerContent>
+            <ObjectAttribute title="{i18n>priceTitle}"/>
+            <ObjectNumber
+                number="{
+                    path: 'NetAmount',
+                    formatter: '.formatter.numberUnit'
+                }"
+                unit="{CurrencyCode}" />
+        </semantic:headerContent>
+        <semantic:content>
 
-                            <Label text="{i18n>special}" design="Bold" />
-                            <Text text="{orders>special}" class="sapUiMediumMarginBottom" />
+            <Table
+                id="lineItemsList"
+                width="auto"
+                items="{SalesOrderLineItemSet}"
+                updateFinished=".onListUpdateFinished"
+                noDataText="{i18n>detailLineItemTableNoDataText}"
+                busyIndicatorDelay="{detailView>/lineItemTableDelay}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title
+                            id="lineItemsTitle"
+                            text="{detailView>/lineItemListTitle}"
+                            titleStyle="H3"
+                            level="H3"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>detailLineItemTableIDColumn}"/>
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End">
+                        <Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <ObjectIdentifier
+                                title="{ProductID}"
+                                text="{ItemPosition}"/>
+                            <ObjectNumber
+                                number="{
+                                    path: 'NetAmount',
+                                    formatter: '.formatter.currencyValue'
+                                }"
+                                unit="{CurrencyCode}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </semantic:content>
+        <!--Semantic ShareMenu Buttons-->
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction
+                id="shareEmail"
+                press=".onSendEmailPress"/>
+        </semantic:sendEmailAction>
 
-                            <Label text="{i18n>seats}" design="Bold" />
-                            <Text text="{orders>seats}" class="sapUiMediumMarginBottom" />
+        <semantic:closeAction>
+            <semantic:CloseAction
+                    id="closeColumn"
+                    press=".onCloseDetailPress"/>
+        </semantic:closeAction>
 
-                            <Label text="{i18n>technicalDetails}" design="Bold" />
-                            <Text text="{orders>technicalDetails}" width="400px" />
-                        </l:VerticalLayout>
-                        <Image
-                            width="100%"
-                            src="{orders>pic}" />
-                    </FlexBox>
-                </content>
-            </Page>
-        </pages>
-    </App>
+        <semantic:fullScreenAction>
+            <semantic:FullScreenAction
+                    id="enterFullScreen"
+                    visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                    press=".toggleFullScreen"/>
+        </semantic:fullScreenAction>
+        <semantic:exitFullScreenAction>
+            <semantic:ExitFullScreenAction
+                    id="exitFullScreen"
+                    visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                    press=".toggleFullScreen"/>
+        </semantic:exitFullScreenAction>
+
+    </semantic:SemanticPage>
+
 </mvc:View>

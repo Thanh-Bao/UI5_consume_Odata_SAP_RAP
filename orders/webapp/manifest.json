@@ -1,156 +1,140 @@
 {
-    "_version": "1.48.0",
-    "sap.app": {
-        "id": "orders",
-        "type": "application",
-        "i18n": "i18n/i18n.properties",
-        "applicationVersion": {
-            "version": "0.0.1"
-        },
-        "title": "{{appTitle}}",
-        "description": "{{appDescription}}",
-        "resources": "resources.json",
-        "sourceTemplate": {
-            "id": "@sap/generator-fiori:basic",
-            "version": "1.9.2",
-            "toolsId": "bc848e9a-7019-4d0f-b9a2-2009bf6ad215"
-        },
-        "dataSources": {
-            "mainService": {
-                "uri": "/sap/opu/odata/sap/ZSDUI_MOVIES/",
-                "type": "OData",
-                "settings": {
-                    "annotations": [],
-                    "localUri": "localService/metadata.xml",
-                    "odataVersion": "2.0"
-                }
-            }
-        },
-        "crossNavigation": {
-            "inbounds": {
-                "orders-inbound": {
-                    "signature": {
-                        "parameters": {},
-                        "additionalParameters": "allowed"
-                    },
-                    "semanticObject": "orders",
-                    "action": "orders",
-                    "title": "{{flpTitle}}",
-                    "subTitle": "{{flpSubtitle}}",
-                    "icon": ""
-                }
-            }
-        }
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "opensap.orders",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
     },
-    "sap.ui": {
-        "technology": "UI5",
-        "icons": {
-            "icon": "",
-            "favIcon": "",
-            "phone": "",
-            "phone@2": "",
-            "tablet": "",
-            "tablet@2": ""
-        },
-        "deviceTypes": {
-            "desktop": true,
-            "tablet": true,
-            "phone": true
-        }
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:listdetail",
+      "version": "1.9.2",
+      "toolsId": "ab2954d7-1bac-49b4-be55-a3f91a1fab11"
     },
-    "sap.ui5": {
-        "flexEnabled": true,
-        "dependencies": {
-            "minUI5Version": "1.108.11",
-            "libs": {
-                "sap.m": {},
-                "sap.ui.core": {},
-                "sap.f": {},
-                "sap.suite.ui.generic.template": {},
-                "sap.ui.comp": {},
-                "sap.ui.generic.app": {},
-                "sap.ui.table": {},
-                "sap.ushell": {}
-            }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
-        },
-        "models": {
-            "i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "settings": {
-                    "bundleName": "orders.i18n.i18n"
-                }
-            },
-            "": {
-                "dataSource": "mainService",
-                "preload": true,
-                "settings": {}
-            },
-            "orders": {
-                "type": "sap.ui.model.json.JSONModel",
-                "uri": "model/Movies.json"
-            }
-        },
-        "resources": {
-            "css": [
-                {
-                    "uri": "css/style.css"
-                }
-            ]
-        },
-        "routing": {
-            "config": {
-                "routerClass": "sap.m.routing.Router",
-                "viewType": "XML",
-                "async": true,
-                "viewPath": "orders.view",
-                "controlAggregation": "pages",
-                "controlId": "app",
-                "clearControlAggregation": false,
-                "transition": "flip",
-                "bypassed": {
-                    "target": "notFound"
-                }
-            },
-            "routes": [
-                {
-                    "name": "RouteDashboard",
-                    "pattern": ":?query:",
-                    "target": "TargetDashboard"
-                },
-                {
-                    "name": "Detail",
-                    "pattern": "orders/{movieId}/appointments/{appointmentId}",
-                    "target": "Detail"
-                }
-            ],
-            "targets": {
-                "TargetDashboard": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "Dashboard",
-                    "viewName": "Dashboard"
-                },
-                "Detail": {
-                    "viewType": "XML",
-                    "viewId": "Detail",
-                    "viewName": "Detail"
-                },
-                "notFound": {
-                    "viewId": "notFound",
-                    "viewName": "NotFound"
-                }
-            }
-        },
-        "rootView": {
-            "viewName": "orders.view.App",
-            "type": "XML",
-            "async": true,
-            "id": "App"
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
         }
+      }
     }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.113.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "opensap.orders.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "opensap.orders.view",
+        "controlId": "layout",
+        "controlAggregation": "beginColumnPages",
+        "bypassed": {
+          "target": [
+            "notFound"
+          ]
+        },
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "list",
+          "target": "list"
+        },
+        {
+          "pattern": "SalesOrderSet/{objectId}",
+          "name": "object",
+          "target": [
+            "list",
+            "object"
+          ]
+        }
+      ],
+      "targets": {
+        "list": {
+          "viewName": "List",
+          "viewLevel": 1,
+          "viewId": "list"
+        },
+        "object": {
+          "viewName": "Detail",
+          "viewId": "detail",
+          "viewLevel": 1,
+          "controlAggregation": "midColumnPages"
+        },
+        "detailObjectNotFound": {
+          "viewName": "DetailObjectNotFound",
+          "viewId": "detailObjectNotFound",
+          "controlAggregation": "midColumnPages"
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFound"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "opensap.orders.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  }
 }

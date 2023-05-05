@@ -2,7 +2,7 @@
 
 specVersion: "2.6"
 metadata:
-  name: orders
+  name: opensap.orders
 type: application
 server:
   customMiddleware:
@@ -16,9 +16,8 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - scp: true
-            path: /sap
-            url: https://6654aaf7-905f-48ea-b013-3811c03fcba8.abap.us10.hana.ondemand.com
+          - path: /sap
+            url: https://sapes5.sapdevcenter.com
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -30,7 +29,7 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /sap/opu/odata/sap/ZSDUI_MOVIES
+          - urlPath: /sap/opu/odata/IWBEP/GWSAMPLE_BASIC
             metadataPath: ./webapp/localService/metadata.xml
             mockdataPath: ./webapp/localService/data
             generateMockData: true

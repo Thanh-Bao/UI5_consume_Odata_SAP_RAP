@@ -1,5 +1,7 @@
 sap.ui.define([
-	"orders/test/unit/controller/View1.controller"
-], function () {
+	"./model/models",
+	"./model/formatter",
+	"./controller/ListSelector"
+], function() {
 	"use strict";
 });
