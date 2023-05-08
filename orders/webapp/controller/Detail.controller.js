@@ -2,8 +2,9 @@ sap.ui.define([
     "./BaseController",
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
-    "sap/m/library"
-], function (BaseController, JSONModel, formatter, mobileLibrary) {
+    "sap/m/library",
+    "sap/m/MessageToast"
+], function (BaseController, JSONModel, formatter, mobileLibrary, MessageToast) {
     "use strict";
 
     // shortcut for sap.m.URLHelper
@@ -22,9 +23,9 @@ sap.ui.define([
             // detail page is busy indication immediately so there is no break in
             // between the busy indication for loading the view's meta data
             var oViewModel = new JSONModel({
-                busy : false,
-                delay : 0,
-                lineItemListTitle : this.getResourceBundle().getText("detailLineItemTableHeading")
+                busy: false,
+                delay: 0,
+                lineItemListTitle: this.getResourceBundle().getText("detailLineItemTableHeading")
             });
 
             this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
@@ -52,7 +53,7 @@ sap.ui.define([
             );
         },
 
-        
+
         /**
          * Updates the item count within the line item table's header
          * @param {object} oEvent an event containing the total number of items in the list
@@ -86,11 +87,11 @@ sap.ui.define([
          * @private
          */
         _onObjectMatched: function (oEvent) {
-            var sObjectId =  oEvent.getParameter("arguments").objectId;
+            var sObjectId = oEvent.getParameter("arguments").objectId;
             this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
-            this.getModel().metadataLoaded().then( function() {
+            this.getModel().metadataLoaded().then(function () {
                 var sObjectPath = this.getModel().createKey("SalesOrderSet", {
-                    SalesOrderID:  sObjectId
+                    SalesOrderID: sObjectId
                 });
                 this._bindView("/" + sObjectPath);
             }.bind(this));
@@ -111,10 +112,10 @@ sap.ui.define([
             oViewModel.setProperty("/busy", false);
 
             this.getView().bindElement({
-                path : sObjectPath,
+                path: sObjectPath,
                 events: {
-                    change : this._onBindingChange.bind(this),
-                    dataRequested : function () {
+                    change: this._onBindingChange.bind(this),
+                    dataRequested: function () {
                         oViewModel.setProperty("/busy", true);
                     },
                     dataReceived: function () {
@@ -164,7 +165,7 @@ sap.ui.define([
             oViewModel.setProperty("/delay", 0);
             oViewModel.setProperty("/lineItemTableDelay", 0);
 
-            oLineItemTable.attachEventOnce("updateFinished", function() {
+            oLineItemTable.attachEventOnce("updateFinished", function () {
                 // Restore original busy indicator delay for line item table
                 oViewModel.setProperty("/lineItemTableDelay", iOriginalLineItemTableBusyDelay);
             });
@@ -197,9 +198,17 @@ sap.ui.define([
                 this.getModel("appView").setProperty("/layout", "MidColumnFullScreen");
             } else {
                 // reset to previous layout
-                this.getModel("appView").setProperty("/layout",  this.getModel("appView").getProperty("/previousLayout"));
+                this.getModel("appView").setProperty("/layout", this.getModel("appView").getProperty("/previousLayout"));
             }
+        },
+        onConfirm: function (oEvent) {
+            var oBinding = oEvent.getSource().getBindingContext().getObject();
+            var oMessage = this.getResourceBundle().getText(
+                "OrderPreparationMessage", [oBinding.CustomerID,
+                oBinding.CustomerName]);
+            MessageToast.show(oMessage);
         }
+
     });
 
 });

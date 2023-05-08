@@ -2,7 +2,10 @@
     controllerName="opensap.orders.controller.Detail"
     xmlns="sap.m"
     xmlns:semantic="sap.f.semantic"
-    xmlns:mvc="sap.ui.core.mvc">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:control="opensap.orders.control"
+>
 
     <semantic:SemanticPage
         id="detailPage"
@@ -23,50 +26,56 @@
                 unit="{CurrencyCode}" />
         </semantic:headerContent>
         <semantic:content>
+            <l:VerticalLayout>
+                <control:OrderPreparations
+                    id="orderPreparations"
+                    confirm=".onConfirm">
+                </control:OrderPreparations>
 
-            <Table
-                id="lineItemsList"
-                width="auto"
-                items="{ToLineItems}"
-                updateFinished=".onListUpdateFinished"
-                noDataText="{i18n>detailLineItemTableNoDataText}"
-                busyIndicatorDelay="{detailView>/lineItemTableDelay}">
-                <headerToolbar>
-                    <Toolbar>
-                        <Title
-                            id="lineItemsTitle"
-                            text="{detailView>/lineItemListTitle}"
-                            titleStyle="H3"
-                            level="H3" />
-                    </Toolbar>
-                </headerToolbar>
-                <columns>
-                    <Column>
-                        <Text text="{i18n>detailLineItemTableIDColumn}" />
-                    </Column>
-                    <Column
-                        minScreenWidth="Tablet"
-                        demandPopin="true"
-                        hAlign="End">
-                        <Text text="{i18n>detailLineItemTableUnitNumberColumn}" />
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem>
-                        <cells>
-                            <ObjectIdentifier
-                                title="{ProductID}"
-                                text="{ItemPosition}" />
-                            <ObjectNumber
-                                number="{
+                <Table
+                    id="lineItemsList"
+                    width="auto"
+                    items="{ToLineItems}"
+                    updateFinished=".onListUpdateFinished"
+                    noDataText="{i18n>detailLineItemTableNoDataText}"
+                    busyIndicatorDelay="{detailView>/lineItemTableDelay}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title
+                                id="lineItemsTitle"
+                                text="{detailView>/lineItemListTitle}"
+                                titleStyle="H3"
+                                level="H3" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>detailLineItemTableIDColumn}" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                            hAlign="End">
+                            <Text text="{i18n>detailLineItemTableUnitNumberColumn}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <ObjectIdentifier
+                                    title="{ProductID}"
+                                    text="{ItemPosition}" />
+                                <ObjectNumber
+                                    number="{
                                     path: 'NetAmount',
                                     formatter: '.formatter.currencyValue'
                                 }"
-                                unit="{CurrencyCode}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+                                    unit="{CurrencyCode}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </l:VerticalLayout>
         </semantic:content>
         <!--Semantic
         ShareMenu Buttons-->
